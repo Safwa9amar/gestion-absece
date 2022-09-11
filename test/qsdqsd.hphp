@@ -1,0 +1,55 @@
+ <?php
+            include 'php/db_conn.php';
+              $conn->select_db('abs_users');
+              $query = $conn -> prepare("SELECT etudiant.*, module.*,absence.*
+              FROM  absence 
+              inner join etudiant on etudiant.id = absence.etudant_id
+              inner join module on module.id = absence.mod_id
+              ORDER BY abs_id DESC LIMIT 5");
+              // $query ->bind_param('i',5);
+              $query ->execute();
+              $result = $query->get_result();
+              $nom_et_abs = [];
+              $prenom_et_abs = [];
+              while ($row = mysqli_fetch_assoc($result)) {
+                array_push($nom_et_abs,$row['nom']);
+                array_push($prenom_et_abs,$row['prenom'][0]);
+              }
+              print_r($nom_et_abs);
+              print_r($prenom_et_abs);
+          ?>
+          <div class='item'>
+            <div class="ui simple dropdown item">
+              <i class="envelope outline icon"></i>
+              +5
+              <div class='menu'>
+                <div class="ui icon message">
+                  <div class="content">
+                    <div class="header">
+                      L'ajout le plus récent d'absences
+                    </div>
+                    <div class="ui divider"></div>
+                    <div class="ui card">
+                      <div class="content">
+                        <div class="header">Mr.Abdeslem</div>
+                        <div class="meta">1 hr ago</div>
+                        <div class="description">
+                          <p>Ajout d'une nouvelle absence à l'étudiant:
+                          <p>
+                          <p>hassani hamza <a href="?notifID=1000"><i class='caret square right icon'></i>Visit</a></p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <a class="ui horizontal  divider">
+                      Voir tout
+                    </a>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </div>

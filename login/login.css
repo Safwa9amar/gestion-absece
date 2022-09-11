@@ -1,0 +1,34 @@
+body{
+  background: url(/assets/svg/back.svg);
+  background-repeat: no-repeat;
+  background-position:114% -30%;
+}
+
+.row:nth-child(1) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0px 0px 3px 0px rgb(66, 65, 65);
+    background:#FFF;
+    padding: 50px;
+    border-radius: 10px;
+    width: auto;
+  }
+
+  .col-sm-6:nth-child(1){
+    border-right: 1px solid;
+  }
+
+ #udl_logo{
+
+  position: relative;
+
+    left: 50%;
+    transform: translate(-50%);
+
+  }
+.description{
+    text-align: justify;
+    width: 250px;
+}
